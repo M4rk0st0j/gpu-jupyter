@@ -33,6 +33,20 @@ RUN set -ex \
  && fix-permissions "${CONDA_DIR}" \
  && fix-permissions "/home/${NB_USER}"
 
+RUN set -ex \
+ && buildDeps=' \
+    torch_geometric \
+    torch-cluster \
+    torch-scatter \
+    torch-sparse \
+    torch_spline_conv \
+    pyg_lib \
+    -f https://data.pyg.org/whl/torch-2.1.0+cu121.html \ 
+' \
+ && pip install --no-cache-dir $buildDeps \
+ && fix-permissions "${CONDA_DIR}" \
+ && fix-permissions "/home/${NB_USER}"
+
 USER root
 ENV CUDA_PATH=/opt/conda/
 
