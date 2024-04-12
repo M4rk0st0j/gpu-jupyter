@@ -39,10 +39,10 @@ RUN pip install --no-cache-dir \
     ipyleaflet==0.17.2 \
     ipywidgets==8.0.4 \
     # install spell checker
-    jupyterlab-spellchecker==0.7.3 && \
-    plyfile \
-    scikit-spatial \
-    pandarallel \
+    jupyterlab-spellchecker==0.7.3 \
+    plyfile==1.0.3 \
+    scikit-spatial==7.2.0 \
+    pandarallel==1.6.5 \
     # fix permissions of conda
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
